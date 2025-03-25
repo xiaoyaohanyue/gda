@@ -1,0 +1,16 @@
+from dotenv import load_dotenv
+import os
+load_dotenv('config/.env')
+LOG_PATH = os.getenv("LOG_PATH", "/gda/logs")
+FILE_ROOT_PATH = os.getenv("FILE_ROOT_PATH", "/gda/alist/app")
+FILE_ROOT_PATH_BACKUP = os.getenv("FILE_ROOT_PATH_BACKUP", "/gda/alist/backup/app")
+DATABASE_HOST = os.getenv("DATABASE_HOST", "localhost")
+DATABASE_PORT = os.getenv("DATABASE_PORT", "3306")
+DATABASE_NAME = os.getenv("DATABASE_NAME", "gda")
+DATABASE_USER = os.getenv("DATABASE_USER", "root")
+DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "defaultpassword")
+TG_NOTICES_CHAT_ID = os.getenv("TG_NOTICES_CHAT_ID", "null")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "null")
+GITHUB_ACCESS_TOKEN = os.getenv("GITHUB_ACCESS_TOKEN", "null")
+GITHUB_USERNAME = os.getenv("GITHUB_USERNAME", "null")
+CONFIG_FILE = os.getenv("CONFIG_FILE", "config/config.yaml")

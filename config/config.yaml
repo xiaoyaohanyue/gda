@@ -1,0 +1,126 @@
+repositories:
+  - name: "2dust/v2rayNG"
+    config:
+      sp: "browser_download_url"
+      flag: "v2rayng"
+      folder: "v2rayNG"
+    enable: True
+
+  - name: "2dust/v2rayN"
+    config:
+      sp: "browser_download_url"
+      flag: "v2rayn"
+      folder: "v2rayN"
+    enable: True
+
+  - name: "netchx/netch"
+    config:
+      sp: "browser_download_url"
+      flag: "NETCH"
+      folder: "Netch"
+    enable: True
+
+  - name: "Qv2ray/Qv2ray"
+    config:
+      sp: "browser_download_url"
+      flag: "QV2RAY"
+      folder: "Qv2ray"
+    enable: True
+
+  - name: "FQrabbit/SSTap-Rule"
+    config:
+      sp: "browser_download_url"
+      flag: "SSTap_Rule"
+      folder: "SStap_Rule"
+    enable: True
+
+  - name: "yichengchen/clashX"
+    config:
+      sp: "browser_download_url"
+      flag: "Clashx"
+      folder: "ClashX"
+    enable: True
+
+  - name: "Kr328/ClashForAndroid"
+    config:
+      sp: "browser_download_url"
+      flag: "ClashforAndroid"
+      folder: "Clash_Android"
+    enable: True
+
+  - name: "BoyceLig/Clash_Chinese_Patch"
+    config:
+      sp: "browser_download_url"
+      flag: "Clash_Chinese_Plugin"
+      folder: "Clash_Chinese_Patch"
+    enable: True
+
+  - name: "Fndroid/clash_for_windows_pkg"
+    config:
+      sp: "browser_download_url"
+      flag: "Fndroid_clash"
+      folder: "Clash_windows"
+    enable: True
+
+  - name: "Dreamacro/clash"
+    config:
+      sp: "browser_download_url"
+      flag: "Dreamacro_clash"
+      folder: "Clash_core"
+    enable: True
+
+  - name: "qingshuisiyuan/electron-ssr-backup"
+    config:
+      sp: "browser_download_url"
+      flag: "electron_backup"
+      folder: "electron_ssr"
+    enable: True
+
+  - name: "shadowsocks/shadowsocks-android"
+    config:
+      sp: "browser_download_url"
+      flag: "Shadowsocks_android"
+      folder: "shadowsocks_android"
+    enable: True
+
+  - name: "shadowsocks/ShadowsocksX-NG"
+    config:
+      sp: "browser_download_url"
+      flag: "ShadowsocksX_NG"
+      folder: "ShadowsocksX_MAC"
+    enable: True
+
+  - name: "shadowsocks/shadowsocks-windows"
+    config:
+      sp: "browser_download_url"
+      flag: "Shadowsocks_windows"
+      folder: "shadowsocks_windows"
+    enable: True
+
+  - name: "telegramdesktop/tdesktop"
+    config:
+      sp: "browser_download_url"
+      flag: "TGdesktop"
+      folder: "Telegram_desktop"
+    enable: True
+
+  - name: "TelegramMessenger/Telegram-iOS"
+    config:
+      sp: "browser_download_url"
+      flag: "TG_iOS"
+      folder: "Telegram_iOS"
+    enable: True
+
+  - name: "v2fly/v2ray-core"
+    config:
+      sp: "browser_download_url"
+      flag: "v2fly_core"
+      folder: "V2ray_Core"
+    enable: True
+
+  - name: "SagerNet/sing-box"
+    config:
+      sp: "browser_download_url"
+      flag: "sing_box"
+      folder: "Sing_Box"
+    enable: True
