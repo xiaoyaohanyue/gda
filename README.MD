@@ -1,6 +1,59 @@
 ## GDA
 当前文档仅仅是简单介绍一下，后续有时间会详细补充，也欢迎大家补充说明。
 
+
+
+## 配置文件说明
+
+### .env文件
+这个文件里大多数是关于本程序的基础配置信息。主要有以下可配置参数
+- LOG_PATH
+  用来填写程序日志文件的存放目录，如果路径为一个不存在的路径则会自动创建该路径，参数值不可为空，可以保持默认值 `/gda/logs`
+- FILE_ROOT_PATH
+  用来填写被下载文件的存放路径，如果路径为一个不存在的路径则会自动创建该路径，参数值不可为空，可以保持默认值 `/gda/alist/app`
+- FILE_ROOT_PATH_BACKUP
+  用于填写上一次被下载的文件的存放路径（每次下载新一次的文件时会自动将上一次下载的内容备份到本路径下），如果路径为一个不存在的路径则会自动创建该路径，参数值不可为空，可以保持默认值`/gda/alist/backup/app`
+- CONFIG_FILE
+  用于填写需要下载的项目列表的配置文件地址，该文件用于详细配置需要定期下载哪些项目文件，该值不可为空，可以保持默认值`./config/config.yaml`
+- DATABASE_HOST
+  用于填写数据库的连接地址（本程序使用mysql 8.x），该值不可为空，可以保持默认值`db`
+- DATABASE_PORT
+  用于填写数据库的连接端口，不可为空，可以保持默认值`3306`
+- DATABASE_NAME
+  用于填写数据库名称，不可为空，可以保持默认值`gda`
+- DATABASE_USER
+  数据库用户名，不可为空，可保持默认值`root`
+- DATABASE_PASSWORD
+  数据库连接密码，不可为空，可以保持默认值`defaultpassword`
+- BOT_TOKEN
+  Telegram Bot的token，可前往@BotFather进行申请，不可为空，没有默认值
+- TG_NOTICES_CHAT_ID
+  Telegram的通知对话的ID，不可为空，没有默认值
+- GITHUB_ACCESS_TOKEN
+  Github的全局访问Token，不可为空，没有默认值，需要自行前往Github进行申请创建
+- GITHUB_USERNAME
+  Github用户名
+
+### config.yaml
+该配置文件用于填写待下载的项目列表，目前仅支持github项目。
+基础结构如下：
+```yaml
+repositories:
+  - name: "2dust/v2rayNG" #仓库地址
+    config:
+      sp: "browser_download_url" #保持不变
+      flag: "v2rayng" #下载链接的标记，确保其在整个文件中的唯一性，不可重复
+      folder: "v2rayNG" #下载后的保存文件夹名称，可在alist中看到
+    enable: True #是否要启用该项目的下载
+
+  - name: "2dust/v2rayN"
+    config:
+      sp: "browser_download_url"
+      flag: "v2rayn"
+      folder: "v2rayN"
+    enable: True
+```
+
 ## Docker Compose方式部署
 当前项目中提供的docker-compose.yaml中默认集成了alist以及mysql，如果你需要单独部署他们则需要自行编写，需要做的变动很小。
 
