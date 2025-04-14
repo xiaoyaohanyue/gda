@@ -68,15 +68,23 @@ class GDA_QUEUE:
             if item['enable']:
                 datas = self.database.query(f'SELECT * from dwqueue WHERE name = "{item["name"]}"',True)
                 if datas:
-                    links = json.loads(datas[0][4])
-                    prelinks = json.loads(datas[0][5])
-                    if self.count_files(datas[0][6]) != len(links):
+                    try:
+                        links = json.loads(datas[0][4])
+                    except:
+                        links = []
+                        logger.error(f'{item["name"]} 稳定版数据为空，将跳过。')
+                    try:
+                        prelinks = json.loads(datas[0][5])
+                    except:
+                        prelinks = []
+                        logger.warning(f'{item["name"]} 预先版数据为空，将跳过。')
+                    if links is not None and self.count_files(datas[0][6]) != len(links):
                         logger.info(f'{item["name"]} 稳定版文件数量不匹配，开始重新下载！')
                         logger.info(f'{item["name"]} 稳定版文件数量为 {len(links)}，实际文件数量为 {self.count_files(datas[0][6])}。')
                         self.database.updateflag(item['name'],'dwsflag','1')
                         self.delete_all_contents(datas[0][6])
                         self.download.prepare_download(item,series='release')
-                    if self.count_files(datas[0][7]) != len(prelinks):
+                    if prelinks is not None and self.count_files(datas[0][7]) != len(prelinks):
                         logger.info(f'{item["name"]} 预先版文件数量不匹配，开始重新下载！')
                         logger.info(f'{item["name"]} 预先版文件数量为 {len(prelinks)}，实际文件数量为 {self.count_files(datas[0][7])}。')
                         self.delete_all_contents(datas[0][7])

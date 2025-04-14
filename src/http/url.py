@@ -72,8 +72,16 @@ class GDA_URL:
     
     def genarate_remote_info(self,item) -> dict:
         infos = defaultdict(dict)
-        infos = self.get_remote_info(item,'release')
-        infos[item['config']['flag']].update(self.get_remote_info(item,'prerelease')[item['config']['flag']])
+        try:
+            infos = self.get_remote_info(item,'release')
+        except:
+            infos = {}
+            logger.warning(f'{item["name"]}稳定版数据不存在,请检查该项目是否正常可访问或禁用该项目检测！！！')
+            return infos
+        try:
+            infos[item['config']['flag']].update(self.get_remote_info(item,'prerelease')[item['config']['flag']])
+        except:
+            logger.warning(f'{item["name"]}预览版数据不存在！！！')
         return infos
     
     def handle_info(self,name,info,series) -> bool:
@@ -99,6 +107,8 @@ class GDA_URL:
                 continue
             logger.info(f'开始处理{item["name"]}的更新任务')
             remote = self.genarate_remote_info(item)
+            if not remote:
+                continue
             flag = item['config']['flag']
             try:
                 self.handle_info(item['name'],remote[flag],'release')

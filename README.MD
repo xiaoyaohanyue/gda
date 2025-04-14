@@ -95,3 +95,16 @@ docker exec -it alist ./alist admin set NEW_PASSWORD
 到这里就可以访问 http://127.0.0.1:5244 来查看了。
 
 演示站：[缥缈墟-文件站](https://file.pmxu.xyz)
+
+---
+
+
+Todo:
+- 增加更加细化的目录结构
+- 增加对其他下载源的支持
+- 增强TG Bot的功能
+
+
+Update Log:
+- 2025-4-14: 增加当项目release不可读取时处理方式，修改默认监听的项目列表
+
