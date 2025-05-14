@@ -11,16 +11,7 @@ RUN apk add --no-cache --virtual .build-deps \
         bash \
         && pip install --upgrade pip \
         && pip install pyinstaller \
-        && pip install --no-cache-dir -r requirements.txt \
-        && pyinstaller --onefile main.py
+        && pip install --no-cache-dir -r requirements.txt
 
-FROM alpine
 
-WORKDIR /app
-
-COPY --from=builder /app/dist/main /app/main
-COPY --from=builder /app/config/ /app/config/
-
-# RUN apk add --no-cache libmagic
-
-CMD ["./main"]
+CMD ["python","main.py"]
