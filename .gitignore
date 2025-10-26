@@ -6,4 +6,3 @@ app/
 .venv/
 sessions/
 config/.env
-config/.env
