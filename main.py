@@ -1,36 +1,39 @@
-from src.http.url import GDA_URL
-import schedule,time
-from src.http.queue import GDA_QUEUE
-from src.init.init import GDA_INIT
+# main.py
+import asyncio
+import signal
 
-URL = GDA_URL()
-QUEUE = GDA_QUEUE()
-INIT = GDA_INIT()
+from lib.init import boot
+from lib.schedule import scheduler
+from lib.log import logger
 
 
-def job():
-    INIT.init()
-    URL.save_info()
+async def main():
+    # 1) 应用启动（数据库、配置等）
+    await boot()
 
-def unlock():
-    QUEUE.lock_check()
+    # 2) 仅启动调度器（所有任务由 scheduler 统一调度，包括一次性的“开机初始化”）
+    scheduler.start()
+    logger.info("✅ Scheduler started")
 
-def checking():
-    QUEUE.checking()
+    # 3) 优雅退出
+    stop = asyncio.Event()
+    loop = asyncio.get_running_loop()
+    for sig in (signal.SIGINT, signal.SIGTERM):
+        try:
+            loop.add_signal_handler(sig, stop.set)
+        except NotImplementedError:
+            # Windows 某些环境可能不支持信号处理
+            pass
 
-def start():
-    job()
-    checking()
+    await stop.wait()
+    logger.info("🛑 Shutting down...")
 
-print(__name__)
-if __name__ == '__main__':
-    start()
-    schedule.every().day.at("06:00").do(job)
-    schedule.every().day.at("18:00").do(job)
-    schedule.every(1).hours.do(unlock)
-    # schedule.every(3).minutes.do(checking)
-    schedule.every(2).hours.do(checking)
-    while True:
-        schedule.run_pending()
-        time.sleep(1)   
+    # APScheduler 3.x 的 AsyncIOScheduler.shutdown 是同步方法
+    try:
+        scheduler.shutdown(wait=False)
+    except Exception:
+        logger.exception("Scheduler shutdown failed")
 
+
+if __name__ == "__main__":
+    asyncio.run(main())

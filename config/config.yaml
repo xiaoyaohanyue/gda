@@ -2,231 +2,165 @@ repositories:
 
   - name: "hiddify/Hiddify-Manager"
     config:
-      sp: "browser_download_url"
-      flag: "hiddifymanager"
       folder: "Hiddify-Manager"
     enable: True
 
   - name: "nikkinikki-org/OpenWrt-nikki"
     config:
-      sp: "browser_download_url"
-      flag: "openWrtnikki"
       folder: "OpenWrt-nikki"
     enable: True
 
   - name: "MetaCubeX/metacubexd"
     config:
-      sp: "browser_download_url"
-      flag: "metacubexd"
       folder: "Metacubexd"
     enable: True
 
   - name: "vernesong/OpenClash"
     config:
-      sp: "browser_download_url"
-      flag: "openclash"
       folder: "OpenClash"
     enable: True
 
   - name: "Loyalsoldier/v2ray-rules-dat"
     config:
-      sp: "browser_download_url"
-      flag: "v2rayrulesdat"
       folder: "v2ray-rules-dat"
     enable: True
 
   - name: "Loyalsoldier/geoip"
     config:
-      sp: "browser_download_url"
-      flag: "geoip"
       folder: "Geoip"
     enable: True
 
   - name: "XTLS/Xray-core"
     config:
-      sp: "browser_download_url"
-      flag: "xraycore"
       folder: "Xray-core"
     enable: True
 
   - name: "GUI-for-Cores/GUI.for.SingBox"
     config:
-      sp: "browser_download_url"
-      flag: "GUIforSingBox"
       folder: "GUI-for-SingBox"
     enable: True
 
   - name: "MetaCubeX/ClashMetaForAndroid"
     config:
-      sp: "browser_download_url"
-      flag: "clash-mfa"
       folder: "ClashMeta_Android"
     enable: True
     
   - name: "MatsuriDayo/nekoray"
     config:
-      sp: "browser_download_url"
-      flag: "nekoray"
       folder: "Nekoray"
     enable: True
 
   - name: "MatsuriDayo/NekoBoxForAndroid"
     config:
-      sp: "browser_download_url"
-      flag: "NekoBoxforandroid"
       folder: "NekoBoxForAndroid"
     enable: True
 
   - name: "getsurfboard/surfboard"
     config:
-      sp: "browser_download_url"
-      flag: "surf_board"
       folder: "surfboard"
     enable: True
 
   - name: "hiddify/hiddify-app"
     config:
-      sp: "browser_download_url"
-      flag: "hiddifyapp"
       folder: "hiddify-app"
     enable: True
 
   - name: "mihomo-party-org/mihomo-party"
     config:
-      sp: "browser_download_url"
-      flag: "mihomoparty"
       folder: "Mihomo-Party"
     enable: True
 
   - name: "2dust/v2rayNG"
     config:
-      sp: "browser_download_url"
-      flag: "v2rayng"
       folder: "v2rayNG"
     enable: True
 
   - name: "2dust/v2rayN"
     config:
-      sp: "browser_download_url"
-      flag: "v2rayn"
       folder: "v2rayN"
     enable: True
 
   - name: "netchx/netch"
     config:
-      sp: "browser_download_url"
-      flag: "NETCH"
       folder: "Netch"
     enable: True
 
   - name: "Qv2ray/Qv2ray"
     config:
-      sp: "browser_download_url"
-      flag: "QV2RAY"
       folder: "Qv2ray"
     enable: True
 
   - name: "FQrabbit/SSTap-Rule"
     config:
-      sp: "browser_download_url"
-      flag: "SSTap_Rule"
       folder: "SStap_Rule"
     enable: True
 
   - name: "clash-verge-rev/clash-verge-rev"
     config:
-      sp: "browser_download_url"
-      flag: "clashvergerev"
-      folder: "clash-verge-rev"
+      folder: "clash"
     enable: True
 
   - name: "2dust/v2rayN"
     config:
-      sp: "browser_download_url"
-      flag: "v2rayn"
       folder: "v2rayN"
     enable: True
 
   - name: "Loyalsoldier/clash-rules"
     config:
-      sp: "browser_download_url"
-      flag: "clashrules"
       folder: "clash-rules"
     enable: True
 
   - name: "libnyanpasu/clash-nyanpasu"
     config:
-      sp: "browser_download_url"
-      flag: "clashnyanpasu"
       folder: "clash-nyanpasu"
     enable: True
 
   - name: "MetaCubeX/mihomo"
     config:
-      sp: "browser_download_url"
-      flag: "mihomo"
       folder: "Mihomo"
     enable: True
 
   - name: "juewuy/ShellCrash"
     config:
-      sp: "browser_download_url"
-      flag: "shellcrash"
       folder: "ShellCrash"
     enable: True
 
   - name: "shadowsocks/shadowsocks-android"
     config:
-      sp: "browser_download_url"
-      flag: "Shadowsocks_android"
       folder: "shadowsocks_android"
     enable: True
 
   - name: "shadowsocks/ShadowsocksX-NG"
     config:
-      sp: "browser_download_url"
-      flag: "ShadowsocksX_NG"
       folder: "ShadowsocksX_MAC"
     enable: True
 
   - name: "shadowsocks/shadowsocks-windows"
     config:
-      sp: "browser_download_url"
-      flag: "Shadowsocks_windows"
       folder: "shadowsocks_windows"
     enable: True
 
   - name: "telegramdesktop/tdesktop"
     config:
-      sp: "browser_download_url"
-      flag: "TGdesktop"
       folder: "Telegram_desktop"
     enable: True
 
   - name: "TelegramMessenger/Telegram-iOS"
     config:
-      sp: "browser_download_url"
-      flag: "TG_iOS"
       folder: "Telegram_iOS"
     enable: True
 
   - name: "v2fly/v2ray-core"
     config:
-      sp: "browser_download_url"
-      flag: "v2fly_core"
       folder: "V2fly_Core"
     enable: True
   
   - name: "v2ray/v2ray-core"
     config:
-      sp: "browser_download_url"
-      flag: "v2ray_core"
       folder: "V2ray_Core"
     enable: True
 
   - name: "SagerNet/sing-box"
     config:
-      sp: "browser_download_url"
-      flag: "sing_box"
       folder: "Sing_Box"
     enable: True
