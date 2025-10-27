@@ -32,8 +32,6 @@ async def start_telegram_bot():
         if command in command_list:
             command_func = command_list[command]
             await command_func(event, args, client)
-        else:
-            await event.respond(f"Command '{command}' not found. Available commands are: {', '.join(command_list.keys())}")
 
     await client.run_until_disconnected()
     return client

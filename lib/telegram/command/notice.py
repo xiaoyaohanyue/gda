@@ -19,7 +19,7 @@ async def notice(event, args, client):
     if tg_id != settings.admin_telegram_id:
         await event.respond("只有管理员才能使用此命令。")
         return
-    chat_id = event.chat_id
+    chat_id = event.message.chat_id
     action = args[0]
 
     group_item = await run_db_session(get_group_item_by_chat_id, chat_id)
