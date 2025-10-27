@@ -3,97 +3,97 @@ repositories:
   - name: "hiddify/Hiddify-Manager"
     config:
       folder: "Hiddify-Manager"
-    enable: False
+    enable: True
 
   - name: "nikkinikki-org/OpenWrt-nikki"
     config:
       folder: "OpenWrt-nikki"
-    enable: False
+    enable: True
 
   - name: "MetaCubeX/metacubexd"
     config:
       folder: "Metacubexd"
-    enable: False
+    enable: True
 
   - name: "vernesong/OpenClash"
     config:
       folder: "OpenClash"
-    enable: False
+    enable: True
 
   - name: "Loyalsoldier/v2ray-rules-dat"
     config:
       folder: "v2ray-rules-dat"
-    enable: False
+    enable: True
 
   - name: "Loyalsoldier/geoip"
     config:
       folder: "Geoip"
-    enable: False
+    enable: True
 
   - name: "XTLS/Xray-core"
     config:
       folder: "Xray-core"
-    enable: False
+    enable: True
 
   - name: "GUI-for-Cores/GUI.for.SingBox"
     config:
       folder: "GUI-for-SingBox"
-    enable: False
+    enable: True
 
   - name: "MetaCubeX/ClashMetaForAndroid"
     config:
       folder: "ClashMeta_Android"
-    enable: False
+    enable: True
     
   - name: "MatsuriDayo/nekoray"
     config:
       folder: "Nekoray"
-    enable: False
+    enable: True
 
   - name: "MatsuriDayo/NekoBoxForAndroid"
     config:
       folder: "NekoBoxForAndroid"
-    enable: False
+    enable: True
 
   - name: "getsurfboard/surfboard"
     config:
       folder: "surfboard"
-    enable: False
+    enable: True
 
   - name: "hiddify/hiddify-app"
     config:
       folder: "hiddify-app"
-    enable: False
+    enable: True
 
   - name: "mihomo-party-org/mihomo-party"
     config:
       folder: "Mihomo-Party"
-    enable: False
+    enable: True
 
   - name: "2dust/v2rayNG"
     config:
       folder: "v2rayNG"
-    enable: False
+    enable: True
 
   - name: "2dust/v2rayN"
     config:
       folder: "v2rayN"
-    enable: False
+    enable: True
 
   - name: "netchx/netch"
     config:
       folder: "Netch"
-    enable: False
+    enable: True
 
   - name: "Qv2ray/Qv2ray"
     config:
       folder: "Qv2ray"
-    enable: False
+    enable: True
 
   - name: "FQrabbit/SSTap-Rule"
     config:
       folder: "SStap_Rule"
-    enable: False
+    enable: True
 
   - name: "clash-verge-rev/clash-verge-rev"
     config:
@@ -103,64 +103,64 @@ repositories:
   - name: "2dust/v2rayN"
     config:
       folder: "v2rayN"
-    enable: False
+    enable: True
 
   - name: "Loyalsoldier/clash-rules"
     config:
       folder: "clash-rules"
-    enable: False
+    enable: True
 
   - name: "libnyanpasu/clash-nyanpasu"
     config:
       folder: "clash-nyanpasu"
-    enable: False
+    enable: True
 
   - name: "MetaCubeX/mihomo"
     config:
       folder: "Mihomo"
-    enable: False
+    enable: True
 
   - name: "juewuy/ShellCrash"
     config:
       folder: "ShellCrash"
-    enable: False
+    enable: True
 
   - name: "shadowsocks/shadowsocks-android"
     config:
       folder: "shadowsocks_android"
-    enable: False
+    enable: True
 
   - name: "shadowsocks/ShadowsocksX-NG"
     config:
       folder: "ShadowsocksX_MAC"
-    enable: False
+    enable: True
 
   - name: "shadowsocks/shadowsocks-windows"
     config:
       folder: "shadowsocks_windows"
-    enable: False
+    enable: True
 
   - name: "telegramdesktop/tdesktop"
     config:
       folder: "Telegram_desktop"
-    enable: False
+    enable: True
 
   - name: "TelegramMessenger/Telegram-iOS"
     config:
       folder: "Telegram_iOS"
-    enable: False
+    enable: True
 
   - name: "v2fly/v2ray-core"
     config:
       folder: "V2fly_Core"
-    enable: False
+    enable: True
   
   - name: "v2ray/v2ray-core"
     config:
       folder: "V2ray_Core"
-    enable: False
+    enable: True
 
   - name: "SagerNet/sing-box"
     config:
       folder: "Sing_Box"
-    enable: False
+    enable: True
