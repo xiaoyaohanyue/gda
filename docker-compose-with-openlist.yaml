@@ -1,0 +1,45 @@
+
+services:
+
+  openlist:
+    image: openlistteam/openlist:latest
+    restart: always
+    container_name: openlist
+    user: '0:0'
+    ports:
+      - 5244:5244
+    networks:
+      - GDA
+    environment:
+      - UMASK=022
+      - TZ=Asia/Shanghai
+    volumes:
+      - GDA_DATA:/gda
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+  
+  gda:
+    image: ghcr.io/xiaoyaohanyue/gda:latest
+    restart: always
+    container_name: gda
+    networks:
+      - GDA
+    volumes:
+      - GDA_DATA:/gda
+      - ./config:/app/config
+      - ./logs:/app/logs
+      - ./sessions:/app/sessions
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  GDA:
+
+volumes:
+  GDA_DATA:
