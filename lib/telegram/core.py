@@ -2,11 +2,23 @@ from telethon import TelegramClient, events
 from lib.conf import settings
 from lib.log import logger
 from lib.telegram.command import *
+import asyncio
 
-api_id = settings.telegram_api_id
-api_hash = settings.telegram_api_hash
+
+client: TelegramClient | None = None
+_client_lock = asyncio.Lock()
 
 async def start_telegram_bot():
+    global client
+
+    async with _client_lock:
+        if client and client.is_connected():
+            logger.info("🤖 Telegram client 已在运行，跳过重复启动。")
+            return client
+        
+    api_id = settings.telegram_api_id
+    api_hash = settings.telegram_api_hash
+        
     client = TelegramClient(f"{settings.session_path}/bot", api_id, api_hash)
     await client.start(bot_token=settings.telegram_bot_token)
 
@@ -22,4 +34,22 @@ async def start_telegram_bot():
             await command_func(event, args, client)
         else:
             await event.respond(f"Command '{command}' not found. Available commands are: {', '.join(command_list.keys())}")
+
+    await client.run_until_disconnected()
+    return client
+
+def get_telegram_client() -> TelegramClient | None:
+    global client
+    return client
+
+async def send_message(chat_id: int | str, text: str):
+    global client
+    if not client or not client.is_connected():
+        logger.warning("⚠️ Telegram client 未连接，尝试启动。")
+        await start_telegram_bot()
+    try:
+        await client.send_message(chat_id, text)
+        logger.info(f"📤 Telegram 消息已发送到 {chat_id}")
+    except Exception as e:
+        logger.error(f"❌ 发送 Telegram 消息失败：{e}")
 

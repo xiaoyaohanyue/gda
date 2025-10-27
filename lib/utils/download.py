@@ -27,7 +27,6 @@ async def _resolve_total_and_range(session: aiohttp.ClientSession, url: str, bas
     优先 HEAD -> 拿不到再用 Range GET(0-0) 解析 Content-Range。
     返回: (total_size, supports_range)
     """
-    # 尝试 HEAD
     try:
         async with session.head(url, allow_redirects=True, headers=base_headers) as resp:
             if resp.status == 200:
@@ -39,7 +38,6 @@ async def _resolve_total_and_range(session: aiohttp.ClientSession, url: str, bas
     except Exception:
         pass
 
-    # 用 Range GET 试探（很多 CDN 会返回 Content-Range: bytes 0-0/12345）
     headers = dict(base_headers)
     headers["Range"] = "bytes=0-0"
     try:

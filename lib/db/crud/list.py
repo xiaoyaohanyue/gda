@@ -32,7 +32,15 @@ async def update_list_item(session: AsyncSession, repository: str, **kwargs) -> 
         await session.refresh(item)
     return item
 
-# === 新增：CAS（Compare-And-Swap）原子状态迁移 ===
+async def delete_list_item(session: AsyncSession, repository: str) -> bool:
+    item = await get_list_item_by_repository(session, repository)
+    if item:
+        await session.delete(item)
+        await session.commit()
+        return True
+    return False
+
+
 async def promote_status(
     session: AsyncSession,
     repository: str,
@@ -40,10 +48,6 @@ async def promote_status(
     next_status: str,
     **extra,
 ) -> bool:
-    """
-    只有当当前状态为 expect_status 时，才更新为 next_status。
-    返回 True 表示本次迁移成功（抢到“所有权”）。
-    """
     stmt = (
         update(ListItem)
         .where(ListItem.repository == repository, ListItem.status == expect_status)
@@ -54,5 +58,4 @@ async def promote_status(
     return res.rowcount == 1
 
 async def refresh_item(session: AsyncSession, repository: str) -> Optional[ListItem]:
-    """再读一次，拿到最新状态/字段"""
     return await get_list_item_by_repository(session, repository)

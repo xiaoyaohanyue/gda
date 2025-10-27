@@ -10,23 +10,28 @@ services:
       MYSQL_DATABASE: gda
     networks:
       - GDA
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
   
-  alist:
-    image: xhofe/alist:beta
+  openlist:
+    image: openlistteam/openlist:latest
     restart: always
-    container_name: alist
+    container_name: openlist
+    user: '0:0'
     ports:
       - 5244:5244
     networks:
       - GDA
     environment:
-      - PUID=0
-      - PGID=0
       - UMASK=022
       - TZ=Asia/Shanghai
     volumes:
@@ -46,8 +51,11 @@ services:
     volumes:
       - GDA_DATA:/gda
       - ./config:/app/config
+      - ./logs:/app/logs
+      - ./sessions:/app/sessions
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     logging:
       driver: "json-file"
       options:
@@ -56,8 +64,6 @@ services:
 
 networks:
   GDA:
-    external: true
 
 volumes:
   GDA_DATA:
-    external: true

@@ -17,7 +17,9 @@ from lib.db.base import ManagedBase
 
 # ⚠️ 必须 import 具体模型，确保注册到 ManagedBase.metadata
 from lib.db import (
-ListItem
+ListItem,
+GroupItem,
+
 )
 
 target_metadata = ManagedBase.metadata
