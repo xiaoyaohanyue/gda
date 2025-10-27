@@ -219,7 +219,7 @@ async def check_download(item) -> None:
             for group in chats:
                 if group.enabled:
                     await send_message(
-                        group.chat_id,
+                        int(group.chat_id),
                         f'{item.name} 下载完成，版本 {item.version} -> {item.new_version}'
                     )   
             await run_db_session(

@@ -11,7 +11,7 @@ async def get_group_item_by_id(session: AsyncSession, item_id: int) -> Optional[
     result = await session.exec(select(GroupItem).where(GroupItem.id == item_id))
     return result.first()
 
-async def get_group_item_by_chat_id(session: AsyncSession, chat_id: int) -> Optional[GroupItem]:
+async def get_group_item_by_chat_id(session: AsyncSession, chat_id: str) -> Optional[GroupItem]:
     result = await session.exec(select(GroupItem).where(GroupItem.chat_id == chat_id))
     return result.first()
 
@@ -31,7 +31,7 @@ async def update_group_item(session: AsyncSession, item_id: int, **kwargs) -> Op
         await session.refresh(item)
     return item
 
-async def update_group_item_by_chat_id(session: AsyncSession, chat_id: int, **kwargs) -> Optional[GroupItem]:
+async def update_group_item_by_chat_id(session: AsyncSession, chat_id: str, **kwargs) -> Optional[GroupItem]:
     item = await get_group_item_by_chat_id(session, chat_id)
     if item:
         for key, value in kwargs.items():

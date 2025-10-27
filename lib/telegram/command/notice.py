@@ -1,6 +1,6 @@
 from .registry import register
 from lib.conf import settings
-from lib.db import run_db_session, create_group_item, get_group_item_by_chat_id, update_group_item_by_chat_id
+from lib.db import run_db_session, create_group_item, get_group_item_by_chat_id, update_group_item_by_chat_id, GroupItem
 
 @register("notice", desc="启用或关闭通知", permission="admin")
 async def notice(event, args, client):
@@ -22,18 +22,18 @@ async def notice(event, args, client):
     chat_id = event.message.chat_id
     action = args[0]
 
-    group_item = await run_db_session(get_group_item_by_chat_id, chat_id)
+    group_item = await run_db_session(get_group_item_by_chat_id, str(chat_id))
     if action == "on":
         if group_item is None:
-            group_item = await run_db_session(create_group_item, chat_id=chat_id)
+            group_item = await run_db_session(create_group_item, GroupItem(chat_id=str(chat_id)))
         else:
-            group_item = await run_db_session(update_group_item_by_chat_id, chat_id, enabled=True)
+            group_item = await run_db_session(update_group_item_by_chat_id, str(chat_id), enabled=True)
         await event.respond("已启用通知。")
     else:  
         if group_item is None:
             await event.respond("通知处于关闭状态。")
         else:
-            group_item = await run_db_session(update_group_item_by_chat_id, chat_id, enabled=False)
+            group_item = await run_db_session(update_group_item_by_chat_id, str(chat_id), enabled=False)
             await event.respond("已关闭通知。")
     
     
