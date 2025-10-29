@@ -6,3 +6,4 @@ app/
 .venv/
 sessions/
 config/.env
+config/config.yaml

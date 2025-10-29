@@ -42,7 +42,7 @@ repositories:
 
   - name: "MetaCubeX/ClashMetaForAndroid"
     config:
-      folder: "ClashMeta_Android"
+      folder: "ClashMetaAndroid"
     enable: True
     
   - name: "MatsuriDayo/nekoray"
@@ -92,12 +92,12 @@ repositories:
 
   - name: "FQrabbit/SSTap-Rule"
     config:
-      folder: "SStap_Rule"
+      folder: "SStap-Rule"
     enable: True
 
   - name: "clash-verge-rev/clash-verge-rev"
     config:
-      folder: "clash"
+      folder: "Clash-Verge"
     enable: True
 
   - name: "2dust/v2rayN"
@@ -112,7 +112,7 @@ repositories:
 
   - name: "libnyanpasu/clash-nyanpasu"
     config:
-      folder: "clash-nyanpasu"
+      folder: "Clash-Nyanpasu"
     enable: True
 
   - name: "MetaCubeX/mihomo"
@@ -127,40 +127,40 @@ repositories:
 
   - name: "shadowsocks/shadowsocks-android"
     config:
-      folder: "shadowsocks_android"
+      folder: "shadowsocks-android"
     enable: True
 
   - name: "shadowsocks/ShadowsocksX-NG"
     config:
-      folder: "ShadowsocksX_MAC"
+      folder: "ShadowsocksX-MAC"
     enable: True
 
   - name: "shadowsocks/shadowsocks-windows"
     config:
-      folder: "shadowsocks_windows"
+      folder: "shadowsocks-windows"
     enable: True
 
   - name: "telegramdesktop/tdesktop"
     config:
-      folder: "Telegram_desktop"
+      folder: "Telegram-desktop"
     enable: True
 
   - name: "TelegramMessenger/Telegram-iOS"
     config:
-      folder: "Telegram_iOS"
+      folder: "Telegram-iOS"
     enable: True
 
   - name: "v2fly/v2ray-core"
     config:
-      folder: "V2fly_Core"
+      folder: "V2fly-Core"
     enable: True
   
   - name: "v2ray/v2ray-core"
     config:
-      folder: "V2ray_Core"
+      folder: "V2ray-Core"
     enable: True
 
   - name: "SagerNet/sing-box"
     config:
-      folder: "Sing_Box"
+      folder: "Sing-Box"
     enable: True
